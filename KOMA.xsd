@@ -1,0 +1,300 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema"
+        xmlns:baseForm="https://soap.api.nav.gov.hu/definitions/model/2.0/baseForm/1.0"
+        xmlns:meta="https://api.nav.gov.hu/definitions/form_xsd_metaschema/1.0"
+        xmlns:tns="https://soap.api.nav.gov.hu/definitions/model/2.0/KOMA/14.0"
+        xmlns:xs="http://www.w3.org/2001/XMLSchema"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        targetNamespace="https://soap.api.nav.gov.hu/definitions/model/2.0/KOMA/14.0">
+   <import namespace="https://api.nav.gov.hu/definitions/form_xsd_metaschema/1.0"
+           schemaLocation="form_xsd_metaschema.xsd"/>
+   <import namespace="https://soap.api.nav.gov.hu/definitions/model/2.0/baseForm/1.0"
+           schemaLocation="baseForm.xsd"/>
+   <element name="Doc_KOMA"
+            type="tns:Doc_KOMA_Type"
+            meta:metaType="DocMetaType">
+      <annotation>
+         <documentation>Összevont nyomtatvány a köztartozásmentes adózói adatbázissal kapcsolatos ügyek intézéséhez</documentation>
+      </annotation>
+      <xs:unique name="uniqueFileId_Attachment_1">
+         <xs:selector xpath="Form_KOMA/Attachment_1"/>
+         <xs:field xpath="fileId"/>
+      </xs:unique>
+   </element>
+   <complexType name="Doc_KOMA_Type">
+      <annotation>
+         <documentation>A teljes bizonylat szerkezetet leíró típus</documentation>
+      </annotation>
+      <sequence>
+         <element name="Form_KOMA"
+                  type="tns:Form_KOMA_Type"
+                  minOccurs="1"
+                  maxOccurs="1"
+                  meta:metaType="FormMetaType">
+            <annotation>
+               <documentation>KOMA részbizonylat</documentation>
+            </annotation>
+         </element>
+      </sequence>
+   </complexType>
+   <complexType name="Form_KOMA_Type">
+      <annotation>
+         <documentation>A teljes nyomtatvány KOMA részbiztonylatának szerkezetét leíró típus.</documentation>
+      </annotation>
+      <sequence>
+         <element name="Block_120001"
+                  type="tns:Block_KOMA_120001_Type"
+                  minOccurs="0"
+                  meta:metaType="BlockMetaType">
+            <annotation>
+               <documentation>KOMA-eljárások alapadatai</documentation>
+            </annotation>
+         </element>
+         <element name="Block_120002"
+                  type="tns:Block_KOMA_120002_Type"
+                  minOccurs="0"
+                  meta:metaType="BlockMetaType">
+            <annotation>
+               <documentation>Kérelem</documentation>
+            </annotation>
+         </element>
+         <element name="Block_120003"
+                  type="tns:Block_KOMA_120003_Type"
+                  minOccurs="0"
+                  meta:metaType="BlockMetaType">
+            <annotation>
+               <documentation>Visszavonás</documentation>
+            </annotation>
+         </element>
+         <element name="Block_120004"
+                  type="tns:Block_KOMA_120004_Type"
+                  minOccurs="0"
+                  meta:metaType="BlockMetaType">
+            <annotation>
+               <documentation>Fellebbezés</documentation>
+            </annotation>
+         </element>
+         <element name="Attachment_1"
+                  type="baseForm:AttachmentType"
+                  minOccurs="0"
+                  maxOccurs="unbounded"
+                  meta:metaType="AttachmentMetaType">
+            <annotation>
+               <documentation>Csatolmány; File Extensions:*</documentation>
+            </annotation>
+         </element>
+      </sequence>
+   </complexType>
+   <complexType name="Block_KOMA_120001_Type">
+      <annotation>
+         <documentation>KOMA-eljárások alapadatai</documentation>
+      </annotation>
+      <all>
+         <element name="FieldGroup_120005"
+                  type="tns:FieldGroup_KOMA_120005_Type"
+                  minOccurs="0"
+                  meta:metaType="FieldGroupMetaType">
+            <annotation>
+               <documentation>KOMA-eljárások alapadatai</documentation>
+            </annotation>
+         </element>
+      </all>
+   </complexType>
+   <complexType name="Block_KOMA_120002_Type">
+      <annotation>
+         <documentation>Kérelem</documentation>
+      </annotation>
+      <all>
+         <element name="FieldGroup_120008"
+                  type="tns:FieldGroup_KOMA_120008_Type"
+                  minOccurs="0"
+                  meta:metaType="FieldGroupMetaType">
+            <annotation>
+               <documentation>Kérelem</documentation>
+            </annotation>
+         </element>
+      </all>
+   </complexType>
+   <complexType name="Block_KOMA_120003_Type">
+      <annotation>
+         <documentation>Visszavonás</documentation>
+      </annotation>
+      <all>
+         <element name="FieldGroup_120009"
+                  type="tns:FieldGroup_KOMA_120009_Type"
+                  minOccurs="0"
+                  meta:metaType="FieldGroupMetaType">
+            <annotation>
+               <documentation>Visszavonás</documentation>
+            </annotation>
+         </element>
+      </all>
+   </complexType>
+   <complexType name="Block_KOMA_120004_Type">
+      <annotation>
+         <documentation>Fellebbezés</documentation>
+      </annotation>
+      <all>
+         <element name="FieldGroup_120010"
+                  type="tns:FieldGroup_KOMA_120010_Type"
+                  minOccurs="0"
+                  meta:metaType="FieldGroupMetaType">
+            <annotation>
+               <documentation>Fellebbezés</documentation>
+            </annotation>
+         </element>
+      </all>
+   </complexType>
+   <complexType name="FieldGroup_KOMA_120005_Type">
+      <annotation>
+         <documentation>KOMA-eljárások alapadatai</documentation>
+      </annotation>
+      <all>
+         <element name="Field_0A0001D002A"
+                  minOccurs="0"
+                  meta:metaType="FieldMetaType">
+            <annotation>
+               <documentation>Az adózó azonosító adatai ¦ adószáma: (Adószám)</documentation>
+            </annotation>
+            <simpleType>
+               <restriction base="string">
+                  <minLength value="1"/>
+                  <maxLength value="11"/>
+                  <pattern value="[0-9]+"/>
+               </restriction>
+            </simpleType>
+         </element>
+         <element name="Field_0A0001D003A"
+                  minOccurs="0"
+                  meta:metaType="FieldMetaType">
+            <annotation>
+               <documentation>Az adózó azonosító adatai ¦ adóazonosító jele: (Adóaz)</documentation>
+            </annotation>
+            <simpleType>
+               <restriction base="string">
+                  <minLength value="1"/>
+                  <maxLength value="10"/>
+                  <pattern value="[0-9]+"/>
+               </restriction>
+            </simpleType>
+         </element>
+         <element name="Field_0A0001D001A"
+                  minOccurs="0"
+                  meta:metaType="FieldMetaType">
+            <annotation>
+               <documentation>Az adózó azonosító adatai ¦ neve/megnevezése: (Adózó_neve)</documentation>
+            </annotation>
+            <simpleType>
+               <restriction base="string">
+                  <minLength value="1"/>
+                  <maxLength value="80"/>
+                  <pattern value="[\P{C}]*[^\s][\P{C}]*"/>
+               </restriction>
+            </simpleType>
+         </element>
+         <element name="Field_0A0001C001A"
+                  minOccurs="0"
+                  type="xs:boolean"
+                  meta:metaType="FieldMetaType">
+            <annotation>
+               <documentation>Eljárás-típusok ¦ Kérelem az adatbázisban történő szerepeltetéshez (1_1)</documentation>
+            </annotation>
+         </element>
+         <element name="Field_0A0001C002A"
+                  minOccurs="0"
+                  type="xs:boolean"
+                  meta:metaType="FieldMetaType">
+            <annotation>
+               <documentation>Eljárás-típusok ¦ Az adatbázisban történő szerepeltetési kérelem visszavonása (1_2)</documentation>
+            </annotation>
+         </element>
+         <element name="Field_0A0001C003A"
+                  minOccurs="0"
+                  type="xs:boolean"
+                  meta:metaType="FieldMetaType">
+            <annotation>
+               <documentation>Eljárás-típusok ¦ Kérelem az adatbázisból történő törléshez (1_3)</documentation>
+            </annotation>
+         </element>
+         <element name="Field_0A0001C004A"
+                  minOccurs="0"
+                  type="xs:boolean"
+                  meta:metaType="FieldMetaType">
+            <annotation>
+               <documentation>Eljárás-típusok ¦ A felvételt elutasító határozat elleni fellebbezés (1_4)</documentation>
+            </annotation>
+         </element>
+      </all>
+   </complexType>
+   <complexType name="FieldGroup_KOMA_120008_Type">
+      <annotation>
+         <documentation>Kérelem</documentation>
+      </annotation>
+      <all>
+         <element name="Field_0B0001D001A"
+                  minOccurs="0"
+                  type="xs:boolean"
+                  meta:metaType="FieldMetaType">
+            <annotation>
+               <documentation>Nyilatkozom, hogy a köztartozásmentes adózói adatbázis közzétételét megelőző hónap utolsó napjáig esedékes bevallási és befizetési kötelezettségeimnek maradéktalanul eleget tettem/teszek. Tudomásul veszem, hogy a magánszemély adózó 200 ezer forintig, míg más adózó 500 ezer forintig terjedő mulasztási bírsággal sújtható, ha a köztartozásmentes adózói adatbázisba felvételhez valótlan nyilatkozatot tesz [Az Art. 220. §-ának (1)-(2) bekezdésének értelmében.] (Nyilatkozat)</documentation>
+            </annotation>
+         </element>
+      </all>
+   </complexType>
+   <complexType name="FieldGroup_KOMA_120009_Type">
+      <annotation>
+         <documentation>Visszavonás</documentation>
+      </annotation>
+      <all>
+         <element name="Field_0C0001C001A"
+                  minOccurs="0"
+                  meta:metaType="FieldMetaType">
+            <annotation>
+               <documentation>Kérjük, adja meg a visszavonandó kérelem iktatási számát! (visszavon_vonalkód)</documentation>
+            </annotation>
+            <simpleType>
+               <restriction base="string">
+                  <minLength value="1"/>
+                  <maxLength value="10"/>
+                  <pattern value="[0-9]+"/>
+               </restriction>
+            </simpleType>
+         </element>
+      </all>
+   </complexType>
+   <complexType name="FieldGroup_KOMA_120010_Type">
+      <annotation>
+         <documentation>Fellebbezés</documentation>
+      </annotation>
+      <all>
+         <element name="Field_0E0001C001A"
+                  minOccurs="0"
+                  meta:metaType="FieldMetaType">
+            <annotation>
+               <documentation>Kérjük, adja meg az elutasító határozat iktatási számát! (elut_hat_vonalkód)</documentation>
+            </annotation>
+            <simpleType>
+               <restriction base="string">
+                  <minLength value="1"/>
+                  <maxLength value="10"/>
+                  <pattern value="[0-9]+"/>
+               </restriction>
+            </simpleType>
+         </element>
+         <element name="Field_0E0001E001A"
+                  minOccurs="0"
+                  meta:metaType="FieldMetaType">
+            <annotation>
+               <documentation>Kérjük, csatolja a fellebbezését, és adja meg a csatolmányok darabszámát (fellebbezés + illeték befizetésének igazolása)!. A dokumentumokat a jobb oldalon található Dokumentum kezelő menüsor Mellékletek menüjében csatolhatja! (db)</documentation>
+            </annotation>
+            <simpleType>
+               <restriction base="string">
+                  <minLength value="1"/>
+                  <maxLength value="2"/>
+                  <pattern value="[0-9]+"/>
+               </restriction>
+            </simpleType>
+         </element>
+      </all>
+   </complexType>
+</schema>
